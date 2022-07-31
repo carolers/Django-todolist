@@ -1,0 +1,28 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>View</h1>
+
+
+<form action="" method="POST">
+    {% csrf_token %}{{form.as_p}}
+    {% if todo.date_completed %}
+    {{todo.date_completed}}<br>
+    {% endif %}
+    <input type="submit" name="update" value="修改"></input>
+    <input type="submit" name="delete" value="刪除"></input>
+</form>
+<p id="message">{{message}}</p>
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}

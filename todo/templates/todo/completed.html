@@ -1,24 +1,24 @@
-{% extends 'base.html' %} 
+{% extends 'base.html' %}
 {% block content %}
 
-<h1>TodoList</h1>
+<h1>Completed</h1>
 
 <ul>
-    {% for todo in todos %} 
+    {% for todo in todos %}
     <li style="color: blue; font-size: 24px">
-    <a href="{%  url 'view' todo.id %}" target="_blank">
-        
+        <a href="{%  url 'view' todo.id %}" target="_blank">
+
             {% if todo.completed %}
             <s>{{todo.title}}</s>
             {% else %}
             {{todo.title}}
             {% endif %}
             {% if todo.important %}(重要){% endif %}
-    </a>
-    <a href="{% url 'delete' todo.id %}">刪除</a>
-    <a href="{% url 'completed_by_id' todo.id %}">完成</a>
+        </a>
+        <a href="{% url 'delete' todo.id %}">刪除</a>
+        <a href="{% url 'completed_by_id' todo.id %}">完成</a>
     </li>
-    
+
     <!-- <li>{{todo.title}}</li> -->
     {% endfor %}
 </ul>
